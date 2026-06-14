@@ -1,121 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Portfolio</title>
+  <title>Design Portfolio | Visual Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script>
-  function openLightbox(imageSrc)
-   {
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    lightboxImg.src = imageSrc;
-    lightbox.style.display = 'flex';
-  }
-  
-  function closeLightbox()
-   {
-    const lightbox = document.getElementById('lightbox');
-    lightbox.style.display = 'none';
-  }
-  </script>
+  <script src="script.js" defer></script>
 </head>
+
 <body>
-  <header>
-    <h1>My Portfolio</h1>
-    <br>
-    <h2>Logo</h2>
+  <!-- Background Glows -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+
+  <header class="portfolio-header">
+    <div class="header-content">
+      <span class="badge">Portfolio</span>
+      <h1>Creative Showcase</h1>
+      <p class="subtitle">A curated collection of visual identity, logos, and marketing materials designed to stand out.</p>
+    </div>
+    
+    <!-- Filter Navigation (Visual Only / Anchor Links) -->
+    <nav class="category-nav">
+      <a href="#logos" class="nav-btn active">Logo Designs</a>
+      <a href="#promotional" class="nav-btn">Promotional & Media Design</a>
+      <a href="#miscellaneous" class="nav-btn">Miscelanious</a>
+    </nav>
   </header>
 
-  <section class="portfolio">
-    <div class="portfolio-item" onclick="openLightbox('images/project1.jpg')">
-      <img src="images\project1.jpg" alt="Project 1">
-    </div>
-    <div class="portfolio-item" onclick="openLightbox('images/project2.png')">
-      <img src="images/project2.png" alt="Project 2">
-    </div>
-    <div class="portfolio-item" onclick="openLightbox('images/project3.jpg')">
-      <img src="images/project3.jpg" alt="Project 3">
-    </div>
-    <div class="portfolio-item" onclick="openLightbox('images/WhatsApp Image 2025-01-19 at 5.12.07 PM.jpeg')">
-        <img src="images/WhatsApp Image 2025-01-19 at 5.12.07 PM.jpeg" alt="Project 3">
-    </div>
-    <div class="portfolio-item" onclick="openLightbox('images/project4.jpeg')">
-      <img src="images/project4.jpeg" alt="Project 1">
-    </div>
-    <div class="portfolio-item" onclick="openLightbox('images/motivate.jpg')">
-        <img src="images/motivate.jpg" alt="Project 2">
-    </div>
-    <div class="portfolio-item" onclick="openLightbox('images/mobile_plus_new_logo_3-011.jpg')">
-        <img src="images/mobile_plus_new_logo_3-011.jpg" alt="Project 1">
-    </div>
+  <main class="portfolio-container">
+    <!-- Section: Logo Designs -->
+    <section id="logos" class="portfolio-section">
+      <div class="section-title-wrapper">
+        <span class="section-number">01</span>
+        <h2>Logo & Identity</h2>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item" onclick="openLightbox('images/project1.jpg')">
+          <div class="img-wrapper">
+            <img src="images/project1.jpg" alt="Logo Project 1" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Project One</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/project2.png')">
+          <div class="img-wrapper">
+            <img src="images/project2.png" alt="Logo Project 2" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Project Two</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/project3.jpg')">
+          <div class="img-wrapper">
+            <img src="images/project3.jpg" alt="Logo Project 3" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Project Three</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/WhatsApp Image 2025-01-19 at 5.12.07 PM.jpeg')">
+          <div class="img-wrapper">
+            <img src="images/WhatsApp Image 2025-01-19 at 5.12.07 PM.jpeg" alt="Logo Project 4" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Social Graphics</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/project4.jpeg')">
+          <div class="img-wrapper">
+            <img src="images/project4.jpeg" alt="Logo Project 5" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Brand Concept</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/motivate.jpg')">
+          <div class="img-wrapper">
+            <img src="images/motivate.jpg" alt="Motivation Branding" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Motivate Logo</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/mobile_plus_new_logo_3-011.jpg')">
+          <div class="img-wrapper">
+            <img src="images/mobile_plus_new_logo_3-011.jpg" alt="Mobile Plus Branding" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Mobile Plus</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/Untitled-1-01.jpg')">
+          <div class="img-wrapper">
+            <img src="images/Untitled-1-01.jpg" alt="Creative Logo" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Identity Design</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/1.png')">
+          <div class="img-wrapper">
+            <img src="images/1.png" alt="Logo Design" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Iconography</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/providence-02.jpg')">
+          <div class="img-wrapper">
+            <img src="images/providence-02.jpg" alt="Providence Identity" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Providence</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/workshop_logo-01.jpg')">
+          <div class="img-wrapper">
+            <img src="images/workshop_logo-01.jpg" alt="Workshop Logo" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Workshop Logo</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/workshop_logo_2-01.jpg')">
+          <div class="img-wrapper">
+            <img src="images/workshop_logo_2-01.jpg" alt="Workshop Logo Concept" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Logo</span>
+            <h3>Workshop Logo Concept</h3>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="portfolio-item" onclick="openLightbox('images/Untitled-1-01.jpg')">
-        <img src="images/Untitled-1-01.jpg" alt="Project 1">
+    <!-- Section: Promotional & Media Design -->
+    <section id="promotional" class="portfolio-section">
+      <div class="section-title-wrapper">
+        <span class="section-number">02</span>
+        <h2>Promotional & Media Design</h2>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item" onclick="openLightbox('images/mplus02-01.jpg')">
+          <div class="img-wrapper">
+            <img src="images/mplus02-01.jpg" alt="Marketing Design 1" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Mobile Plus Promo</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/flyer_1.jpeg')">
+          <div class="img-wrapper">
+            <img src="images/flyer_1.jpeg" alt="Flyer Campaign" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Event Flyer</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/vs_design-01.jpg')">
+          <div class="img-wrapper">
+            <img src="images/vs_design-01.jpg" alt="VS Design Layout" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>VS Design Banner</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/2.png')">
+          <div class="img-wrapper">
+            <img src="images/2.png" alt="Marketing Graphic" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Creative Ad</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/3.png')">
+          <div class="img-wrapper">
+            <img src="images/3.png" alt="Marketing Asset" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Social Campaign</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/image_3.jpg')">
+          <div class="img-wrapper">
+            <img src="images/image_3.jpg" alt="Marketing Image 3" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Campaign Display</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/image_1.jpg')">
+          <div class="img-wrapper">
+            <img src="images/image_1.jpg" alt="Marketing Image 1" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Promo Artwork</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/image_2.jpg')">
+          <div class="img-wrapper">
+            <img src="images/image_2.jpg" alt="Marketing Image 2" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Billboard Mockup</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/image_4.jpg')">
+          <div class="img-wrapper">
+            <img src="images/image_4.jpg" alt="Marketing Image 4" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Ad Design</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/221-01.jpg')">
+          <div class="img-wrapper">
+            <img src="images/221-01.jpg" alt="Marketing Design Poster" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Poster 221</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/Let him fly.png')">
+          <div class="img-wrapper">
+            <img src="images/Let him fly.png" alt="Creative Flyer Design" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Let Him Fly Flyer</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/blender_workshop2-01.jpg')">
+          <div class="img-wrapper">
+            <img src="images/blender_workshop2-01.jpg" alt="Blender Workshop Design" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Blender Workshop Poster</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/design_poster-01.jpg')">
+          <div class="img-wrapper">
+            <img src="images/design_poster-01.jpg" alt="Design Poster Creative" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Creative Design Poster</h3>
+          </div>
+        </div>
+        <div class="portfolio-item" onclick="openLightbox('images/orientation_poster-01.jpg')">
+          <div class="img-wrapper">
+            <img src="images/orientation_poster-01.jpg" alt="Orientation Event Poster" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Promotional</span>
+            <h3>Orientation Poster</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Miscelanious -->
+    <section id="miscellaneous" class="portfolio-section">
+      <div class="section-title-wrapper">
+        <span class="section-number">03</span>
+        <h2>Miscelanious</h2>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item" onclick="openLightbox('images/Thumbnail .jpg')">
+          <div class="img-wrapper">
+            <img src="images/Thumbnail .jpg" alt="Video Thumbnail" loading="lazy">
+          </div>
+          <div class="item-overlay">
+            <span class="item-category">Miscelanious</span>
+            <h3>YouTube Art</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="portfolio-footer">
+    <p>&copy; 2026 workshoptech. All rights reserved.</p>
+  </footer>
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="Expanded View">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
-
-    <div class="portfolio-item" onclick="openLightbox('images/providence-02')">
-        <img src="images/providence-02.jpg" alt="Project 1">
-    </div>
-
-
-    
-    <!-- Add more items similarly -->
-  </section>
-  <br>
-  <hr style="color: antiquewhite;">
-  <br>
- <header><h2>Marketting Materials</h2></header>
-  <section class="portfolio">
-
-    <div class="portfolio-item" onclick="openLightbox('images/mplus02-01.jpg')">
-        <img src="images/mplus02-01.jpg" alt="Project 1" >
-    </div>
-
-    <div class="portfolio-item" onclick="openLightbox('images/flyer_1.jpeg')" >
-        <img src="images/flyer_1.jpeg" alt="Project 1" >
-    </div>
-
-    <div class="portfolio-item" onclick="openLightbox('images/vs_design-01.jpg')" >
-        <img src="images/vs_design-01.jpg" alt="Project 1">
-    </div>
-
-    <div class="portfolio-item" onclick="openLightbox('images/image_3.jpg')" >
-        <img src="images/image_3.jpg" alt="Project 1">
-    </div>
-
-    <div class="portfolio-item" onclick="openLightbox('images/image_1.jpg')" >
-        <img src="images/image_1.jpg" alt="Project 1">
-    </div>
-
-    <div class="portfolio-item" onclick="openLightbox('images/image_2.jpg')" >
-        <img src="images/image_2.jpg" alt="Project 1">
-    </div>
-
-    <div class="portfolio-item" onclick="openLightbox('images/image_4.jpg')">
-        <img src="images/image_4.jpg" alt="Project 1">
-    </div>
-
-    <div class="portfolio-item" onclick="openLightbox('images/Thumbnail .jpg')" >
-        <img src="images/Thumbnail .jpg" alt="Project 1">
-    </div>
-
-    
-<!--
-  </section>
-  <br>
-  <hr>
-  <br>
-  <header><h2>Thumbnail</h2></header>
-  <search class="portfolio">
-    <div class="portfolio-item" onclick="openLightbox('images/Thumbnail .jpg')" >
-        <img src="images/Thumbnail .jpg" alt="Project 1">
-    </div>
-  </search>
-  <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="" alt="Expanded Project">
   </div>
--->
 </body>
+
 </html>
