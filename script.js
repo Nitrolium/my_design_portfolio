@@ -122,3 +122,52 @@ function closeLightbox() {
     }
   }, 300);
 }
+
+// ─── Video modal ─────────────────────────────────────────────────────────────
+function openVideo(src, title) {
+  const modal = document.getElementById('video-modal');
+  const video = document.getElementById('modal-video');
+  const titleEl = document.getElementById('video-modal-title');
+
+  video.src = src;
+  titleEl.textContent = title;
+
+  modal.style.display = 'flex';
+  void modal.offsetWidth;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideo() {
+  const modal = document.getElementById('video-modal');
+  const video = document.getElementById('modal-video');
+  modal.classList.remove('active');
+  setTimeout(() => {
+    if (!modal.classList.contains('active')) {
+      modal.style.display = 'none';
+      video.pause();
+      video.src = '';
+      document.body.style.overflow = '';
+    }
+  }, 300);
+}
+
+// ─── Video card hover — scrub to middle frame for preview ────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.vid-preview').forEach(vid => {
+    vid.addEventListener('loadedmetadata', () => {
+      vid.currentTime = vid.duration * 0.25;
+    });
+
+    const card = vid.closest('.vid-card');
+    if (card) {
+      card.addEventListener('mouseenter', () => {
+        vid.play().catch(() => {}); // silent autoplay on hover
+      });
+      card.addEventListener('mouseleave', () => {
+        vid.pause();
+        vid.currentTime = vid.duration * 0.25;
+      });
+    }
+  });
+});

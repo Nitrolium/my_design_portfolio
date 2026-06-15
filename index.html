@@ -30,6 +30,7 @@
       <a href="#promotional" class="nav-btn">Promotional & Media Design</a>
       <a href="#miscellaneous" class="nav-btn">Miscelanious</a>
       <a href="#applications" class="nav-btn">Apps & Software</a>
+      <a href="#automation" class="nav-btn">Automation & Workflow</a>
     </nav>
   </header>
 
@@ -351,6 +352,35 @@
         <!-- Future apps will be added here -->
       </div>
     </section>
+
+    <!-- Section: Automation & Workflow -->
+    <section id="automation" class="portfolio-section">
+      <div class="section-title-wrapper">
+        <span class="section-number">05</span>
+        <h2>Automation & Workflow</h2>
+      </div>
+      <p class="section-subtitle">Automated systems, integrations, and workflow solutions designed to save time and eliminate repetitive work.</p>
+      <div class="vids-grid">
+
+        <div class="vid-card" onclick="openVideo('vids/automation1.mp4', 'Automation Workflow Demo', 'A walkthrough of an automated workflow system.')">
+          <div class="vid-cover">
+            <video src="vids/automation1.mp4" muted preload="metadata" class="vid-preview" id="vid-preview-1"></video>
+            <div class="vid-cover-overlay">
+              <div class="vid-play-btn">&#9654;</div>
+            </div>
+          </div>
+          <div class="vid-info">
+            <div class="vid-name-row">
+              <h3>Automation Workflow Demo</h3>
+              <span class="vid-badge">Automation</span>
+            </div>
+            <p class="vid-desc">A walkthrough of an automated workflow system.</p>
+          </div>
+        </div>
+
+        <!-- Future videos will be added here -->
+      </div>
+    </section>
   </main>
 
   <footer class="portfolio-footer">
@@ -373,6 +403,17 @@
       </div>
     </div>
   </div>
+  <!-- Video Modal Overlay -->
+  <div id="video-modal" class="video-modal-overlay" onclick="closeVideo()">
+    <button class="lightbox-close" onclick="closeVideo()">&times;</button>
+    <div class="video-modal-content" onclick="event.stopPropagation()">
+      <video id="modal-video" controls autoplay style="max-width:100%;max-height:80vh;border-radius:12px;outline:none;"></video>
+      <div class="video-modal-footer">
+        <div id="video-modal-title" class="lightbox-caption"></div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

@@ -549,3 +549,156 @@ body {
   color: var(--text-secondary);
   line-height: 1.5;
 }
+
+/* ─── Automation & Workflow — Video Cards ────────────────────────────────── */
+
+.vids-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+.vid-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.vid-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(167, 139, 250, 0.4);
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.18);
+}
+
+.vid-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
+.vid-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vid-card:hover .vid-preview {
+  transform: scale(1.04);
+}
+
+.vid-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 9, 11, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.vid-card:hover .vid-cover-overlay {
+  background: rgba(9, 9, 11, 0.25);
+}
+
+.vid-play-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  padding-left: 4px;
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.45);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vid-card:hover .vid-play-btn {
+  transform: scale(1.12);
+  background: rgba(167, 139, 250, 1);
+  box-shadow: 0 12px 40px rgba(99, 102, 241, 0.6);
+}
+
+.vid-info {
+  padding: 20px 22px 22px;
+}
+
+.vid-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.vid-name-row h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.vid-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+.vid-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ─── Video Modal ────────────────────────────────────────────────────────── */
+
+.video-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(9, 9, 11, 0.97);
+  backdrop-filter: blur(16px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.video-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 92vw;
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video-modal-overlay.active .video-modal-content {
+  transform: scale(1);
+}
+
+.video-modal-footer {
+  margin-top: 14px;
+  width: 100%;
+}
