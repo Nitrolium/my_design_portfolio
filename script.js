@@ -35,11 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keyboard navigation
   document.addEventListener('keydown', e => {
     const lightbox = document.getElementById('lightbox');
-    if (!lightbox.classList.contains('active')) return;
+    const agp      = document.getElementById('app-gallery-panel');
 
-    if (e.key === 'Escape')      closeLightbox();
-    if (e.key === 'ArrowRight')  galleryNav(1);
-    if (e.key === 'ArrowLeft')   galleryNav(-1);
+    if (e.key === 'Escape') {
+      if (agp.classList.contains('active'))      closeAppGallery();
+      else if (lightbox.classList.contains('active')) closeLightbox();
+    }
+    if (lightbox.classList.contains('active')) {
+      if (e.key === 'ArrowRight') galleryNav(1);
+      if (e.key === 'ArrowLeft')  galleryNav(-1);
+    }
+    if (agp.classList.contains('active')) {
+      if (e.key === 'ArrowRight') agpNav(1);
+      if (e.key === 'ArrowLeft')  agpNav(-1);
+    }
   });
 });
 
@@ -58,12 +67,78 @@ function openLightbox(imageSrc) {
   _showLightbox();
 }
 
-// ─── Multi-image gallery (Applications section) ───────────────────────────────
+// ─── App Gallery Panel (Google Images style) ─────────────────────────────────
+let agpImages = [];
+let agpIndex  = 0;
+let agpName   = '';
+
 function openGallery(name, description, images) {
-  galleryImages = images;
-  galleryIndex  = 0;
-  galleryTitle  = name;
-  _showLightbox();
+  agpImages = images;
+  agpIndex  = 0;
+  agpName   = name;
+
+  // Build thumbnails
+  const thumbsPane = document.getElementById('agp-thumbs');
+  thumbsPane.innerHTML = '';
+  images.forEach((src, i) => {
+    const thumb = document.createElement('div');
+    thumb.className = 'agp-thumb' + (i === 0 ? ' agp-thumb-active' : '');
+    thumb.innerHTML = `<img src="${src}" alt="Screenshot ${i + 1}" loading="lazy">`;
+    thumb.addEventListener('click', () => agpSelectImage(i));
+    thumbsPane.appendChild(thumb);
+  });
+
+  // Set main image
+  document.getElementById('agp-main-img').src = images[0];
+  document.getElementById('agp-app-name').textContent = name;
+  document.getElementById('agp-counter').textContent = `1 / ${images.length}`;
+
+  // Open panel
+  const panel = document.getElementById('app-gallery-panel');
+  panel.style.display = 'flex';
+  void panel.offsetWidth;
+  panel.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  // Scroll active thumb into view
+  thumbsPane.scrollTop = 0;
+}
+
+function agpSelectImage(index) {
+  agpIndex = index;
+  const mainImg = document.getElementById('agp-main-img');
+  mainImg.style.opacity = '0';
+  setTimeout(() => {
+    mainImg.src = agpImages[index];
+    mainImg.style.opacity = '1';
+  }, 120);
+
+  document.getElementById('agp-counter').textContent = `${index + 1} / ${agpImages.length}`;
+
+  // Update active thumb
+  document.querySelectorAll('.agp-thumb').forEach((t, i) => {
+    t.classList.toggle('agp-thumb-active', i === index);
+  });
+
+  // Scroll active thumb into view in the side panel
+  const activeThumb = document.querySelectorAll('.agp-thumb')[index];
+  if (activeThumb) activeThumb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+
+function agpNav(direction) {
+  const next = (agpIndex + direction + agpImages.length) % agpImages.length;
+  agpSelectImage(next);
+}
+
+function closeAppGallery() {
+  const panel = document.getElementById('app-gallery-panel');
+  panel.classList.remove('active');
+  setTimeout(() => {
+    if (!panel.classList.contains('active')) {
+      panel.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }, 300);
 }
 
 // ─── Navigate prev / next within a gallery ───────────────────────────────────

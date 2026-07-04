@@ -414,6 +414,36 @@
     </div>
   </div>
 
+  <!-- App Gallery Panel (Google Images style) -->
+  <div id="app-gallery-panel" class="agp-overlay" onclick="closeAppGallery()">
+    <div class="agp-container" onclick="event.stopPropagation()">
+
+      <!-- Header bar -->
+      <div class="agp-header">
+        <div class="agp-title-group">
+          <span id="agp-app-name" class="agp-app-name"></span>
+          <span id="agp-counter" class="agp-counter"></span>
+        </div>
+        <button class="agp-close" onclick="closeAppGallery()">&times;</button>
+      </div>
+
+      <!-- Body: preview + thumbs -->
+      <div class="agp-body">
+
+        <!-- Large preview -->
+        <div class="agp-preview-pane">
+          <img id="agp-main-img" src="" alt="App screenshot">
+        </div>
+
+        <!-- Thumbnail strip -->
+        <div class="agp-thumbs-pane" id="agp-thumbs">
+          <!-- Filled by JS -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>
