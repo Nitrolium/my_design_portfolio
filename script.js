@@ -315,32 +315,79 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ─── Dynamic Category Filtering (Isotope) ────────────────────────────────────
+// ─── Dynamic Category Filtering (Isotope + Anime.js) ─────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('main-grid');
   if (!grid) return;
+
+  // Set initial state for entrance animation
+  const items = document.querySelectorAll('.filter-item');
+  items.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(40px) scale(0.95)';
+  });
 
   // Initialize Isotope after all images have loaded
   imagesLoaded(grid, function() {
     const iso = new Isotope(grid, {
       itemSelector: '.filter-item',
       layoutMode: 'masonry',
+      stagger: 40, // Built-in Isotope stagger for filtering
       masonry: {
         columnWidth: '.filter-item',
         gutter: 24
       },
-      transitionDuration: '0.6s',
+      transitionDuration: '0.8s',
       hiddenStyle: {
         opacity: 0,
-        transform: 'scale(0.8)'
+        transform: 'scale(0.8) translateY(20px)'
       },
       visibleStyle: {
         opacity: 1,
-        transform: 'scale(1)'
+        transform: 'scale(1) translateY(0)'
       }
     });
 
-    // Bind filter button click
+    // 1. Staggered Wave Entrance (Anime.js)
+    anime({
+      targets: '.filter-item',
+      opacity: 1,
+      translateY: [40, 0],
+      scale: [0.95, 1],
+      delay: anime.stagger(60, { start: 100 }),
+      easing: 'easeOutElastic(1, .8)',
+      duration: 1200
+    });
+
+    // 2. Premium Hover Physics (Anime.js)
+    items.forEach(item => {
+      // Remove native CSS hover transforms to let anime.js handle it
+      item.addEventListener('mouseenter', () => {
+        anime({
+          targets: item,
+          scale: 1.03,
+          translateY: -8,
+          boxShadow: '0 16px 40px rgba(167, 139, 250, 0.25)',
+          borderColor: 'rgba(167, 139, 250, 0.5)',
+          duration: 600,
+          easing: 'easeOutElastic(1, .6)'
+        });
+      });
+      
+      item.addEventListener('mouseleave', () => {
+        anime({
+          targets: item,
+          scale: 1,
+          translateY: 0,
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
+          borderColor: 'rgba(63, 63, 70, 0.4)',
+          duration: 400,
+          easing: 'easeOutQuad'
+        });
+      });
+    });
+
+    // 3. Bind filter button click
     const filtersElem = document.getElementById('filter-nav');
     if (filtersElem) {
       filtersElem.addEventListener('click', function(event) {

@@ -272,14 +272,8 @@ body {
 }
 
 /* Hover State */
-.portfolio-item:hover {
-  transform: translateY(-6px);
-  border-color: rgba(167, 139, 250, 0.4);
-  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
-}
-
 .portfolio-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .portfolio-item:hover .item-overlay {
@@ -477,12 +471,6 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.app-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(167, 139, 250, 0.4);
-  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.18);
-}
-
 .app-cover {
   position: relative;
   width: 100%;
@@ -579,12 +567,6 @@ body {
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.vid-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(167, 139, 250, 0.4);
-  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.18);
 }
 
 .vid-cover {
