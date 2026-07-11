@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!grid) return;
 
   // Set initial state for entrance animation
-  const items = document.querySelectorAll('.filter-item');
+  const items = document.querySelectorAll('.filter-item, .bento-header-card');
   items.forEach(item => {
     item.style.opacity = '0';
     item.style.transform = 'translateY(40px) scale(0.95)';
@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Staggered Wave Entrance (Anime.js)
     anime({
-      targets: '.filter-item',
+      targets: ['.bento-header-card', '.filter-item'],
       opacity: 1,
       translateY: [40, 0],
       scale: [0.95, 1],
