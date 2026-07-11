@@ -314,3 +314,46 @@ document.addEventListener('DOMContentLoaded', () => {
     initCanvas();
   });
 });
+
+// ─── Dynamic Category Filtering (Isotope) ────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('main-grid');
+  if (!grid) return;
+
+  // Initialize Isotope after all images have loaded
+  imagesLoaded(grid, function() {
+    const iso = new Isotope(grid, {
+      itemSelector: '.filter-item',
+      layoutMode: 'masonry',
+      masonry: {
+        columnWidth: '.filter-item',
+        gutter: 24
+      },
+      transitionDuration: '0.6s',
+      hiddenStyle: {
+        opacity: 0,
+        transform: 'scale(0.8)'
+      },
+      visibleStyle: {
+        opacity: 1,
+        transform: 'scale(1)'
+      }
+    });
+
+    // Bind filter button click
+    const filtersElem = document.getElementById('filter-nav');
+    if (filtersElem) {
+      filtersElem.addEventListener('click', function(event) {
+        if (!event.target.matches('.nav-btn')) return;
+        
+        const filterValue = event.target.getAttribute('data-filter');
+        iso.arrange({ filter: filterValue });
+        
+        // Change active class
+        const currentActive = filtersElem.querySelector('.active');
+        if (currentActive) currentActive.classList.remove('active');
+        event.target.classList.add('active');
+      });
+    }
+  });
+});

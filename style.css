@@ -124,6 +124,10 @@ body {
 }
 
 .nav-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 600;
@@ -184,27 +188,29 @@ body {
 
 /* CSS Masonry Columns for aspect-ratio preservation */
 .portfolio-grid {
-  column-count: 3;
-  column-gap: 24px;
+  width: 100%;
+}
+
+/* Isotope Item Sizing */
+.filter-item {
+  width: calc(33.333% - 16px);
+  margin-bottom: 24px;
 }
 
 @media (max-width: 992px) {
-  .portfolio-grid {
-    column-count: 2;
+  .filter-item {
+    width: calc(50% - 12px);
   }
 }
 
 @media (max-width: 600px) {
-  .portfolio-grid {
-    column-count: 1;
+  .filter-item {
+    width: 100%;
   }
 }
 
 .portfolio-item {
-  break-inside: avoid;
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 24px;
+  display: block;
   background: var(--bg-card);
   backdrop-filter: blur(4px);
   border: 1px solid var(--border-color);
@@ -212,7 +218,7 @@ body {
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
