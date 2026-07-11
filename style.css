@@ -25,6 +25,8 @@ html {
 
 body {
   background-color: var(--bg-primary);
+  /* Abstract subtle grain texture overlay */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
   color: var(--text-primary);
   font-family: var(--font-family);
   line-height: 1.6;
@@ -36,25 +38,47 @@ body {
 /* Background Ambient Orbs */
 .glow-orb {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
   border-radius: 50%;
   filter: blur(140px);
-  opacity: 0.15;
+  opacity: 0.12;
   pointer-events: none;
   z-index: 0;
+  animation: floatOrb 20s infinite ease-in-out alternate;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(4vw, -6vh) scale(1.1); }
+  66% { transform: translate(-3vw, 4vh) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
 .orb-1 {
   background: #6366f1;
-  top: -100px;
-  right: -50px;
+  top: -10%;
+  right: -10%;
+  animation-duration: 25s;
+  animation-delay: -5s;
 }
 
 .orb-2 {
   background: #a78bfa;
-  top: 60%;
-  left: -100px;
+  top: 40%;
+  left: -10%;
+  animation-duration: 28s;
+  animation-direction: alternate-reverse;
+}
+
+.orb-3 {
+  background: #ec4899;
+  bottom: -10%;
+  right: 15%;
+  animation-duration: 32s;
+  animation-delay: -12s;
 }
 
 /* Header Styling */
