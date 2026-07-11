@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Staggered Wave Entrance (Anime.js)
     anime({
-      targets: ['.bento-header-card', '.filter-item'],
+      targets: '.bento-header-card, .filter-item',
       opacity: 1,
       translateY: [40, 0],
       scale: [0.95, 1],
