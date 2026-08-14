@@ -13,9 +13,6 @@
 </head>
 
 <body>
-  <!-- Minimal Canvas Particle Background -->
-  <canvas id="bg-canvas" style="position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:-1; pointer-events:none;"></canvas>
-
   <!-- Background Ambient Orbs -->
   <div class="glow-orb orb-1"></div>
   <div class="glow-orb orb-2"></div>
@@ -312,6 +309,22 @@
             <h3>Orientation Poster</h3>
           </div>
         </div>
+
+        <div class="vid-card filter-item promotional" onclick="openVideo('vids/lv_0_20260625165658.mp4', 'Promotional Video', 'A creative promotional video.')">
+          <div class="vid-cover">
+            <video src="vids/lv_0_20260625165658.mp4" muted preload="metadata" class="vid-preview" id="vid-preview-promo"></video>
+            <div class="vid-cover-overlay">
+              <div class="vid-play-btn">&#9654;</div>
+            </div>
+          </div>
+          <div class="vid-info">
+            <div class="vid-name-row">
+              <h3>Promotional Video</h3>
+              <span class="vid-badge">Promotional</span>
+            </div>
+            <p class="vid-desc">A creative promotional video.</p>
+          </div>
+        </div>
       
 
         <div class="portfolio-item filter-item misc" onclick="openLightbox('images/Untitled-1.jpg')">
@@ -463,8 +476,7 @@
     </div>
   </div>
 
-  <!-- Anime.js & Layout Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <!-- Layout Scripts -->
   <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 </body>

@@ -247,160 +247,39 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ─── Minimal Canvas Particle Background ──────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => {
-  const canvas = document.getElementById('bg-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let width, height;
-  let particles = [];
-
-  function initCanvas() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-    particles = [];
-    const numParticles = Math.min(Math.floor((width * height) / 15000), 80);
-    
-    for (let i = 0; i < numParticles; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 1.5 + 0.5
-      });
-    }
-  }
-
-  function animateCanvas() {
-    requestAnimationFrame(animateCanvas);
-    ctx.clearRect(0, 0, width, height);
-    
-    ctx.fillStyle = 'rgba(167, 139, 250, 0.4)';
-    
-    for (let i = 0; i < particles.length; i++) {
-      let p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-      
-      if (p.x < 0 || p.x > width) p.vx = -p.vx;
-      if (p.y < 0 || p.y > height) p.vy = -p.vy;
-      
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fill();
-      
-      for (let j = i + 1; j < particles.length; j++) {
-        let p2 = particles[j];
-        let dx = p.x - p2.x;
-        let dy = p.y - p2.y;
-        let dist = Math.sqrt(dx * dx + dy * dy);
-        
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(167, 139, 250, ${0.15 * (1 - dist / 120)})`;
-          ctx.lineWidth = 0.5;
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.stroke();
-        }
-      }
-    }
-  }
-
-  initCanvas();
-  animateCanvas();
-  window.addEventListener('resize', () => {
-    initCanvas();
-  });
-});
-
-// ─── Dynamic Category Filtering (Isotope + Anime.js) ─────────────────────────
+// ─── Dynamic Category Filtering (Isotope) ─────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('main-grid');
   if (!grid) return;
 
-  // Set initial state for entrance animation
-  const items = document.querySelectorAll('.filter-item, .bento-header-card');
-  items.forEach(item => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(40px) scale(0.95)';
+  const iso = new Isotope(grid, {
+    itemSelector: '.filter-item',
+    layoutMode: 'masonry',
+    masonry: {
+      columnWidth: '.filter-item',
+      gutter: 24
+    },
+    transitionDuration: '0.4s'
   });
 
-  // Initialize Isotope after all images have loaded
-  imagesLoaded(grid, function() {
-    const iso = new Isotope(grid, {
-      itemSelector: '.filter-item',
-      layoutMode: 'masonry',
-      stagger: 40, // Built-in Isotope stagger for filtering
-      masonry: {
-        columnWidth: '.filter-item',
-        gutter: 24
-      },
-      transitionDuration: '0.8s',
-      hiddenStyle: {
-        opacity: 0,
-        transform: 'scale(0.8) translateY(20px)'
-      },
-      visibleStyle: {
-        opacity: 1,
-        transform: 'scale(1) translateY(0)'
-      }
-    });
+  // Re-layout as images load
+  imagesLoaded(grid).on('progress', function() {
+    iso.layout();
+  });
 
-    // 1. Staggered Wave Entrance (Anime.js)
-    anime({
-      targets: '.bento-header-card, .filter-item',
-      opacity: 1,
-      translateY: [40, 0],
-      scale: [0.95, 1],
-      delay: anime.stagger(60, { start: 100 }),
-      easing: 'easeOutElastic(1, .8)',
-      duration: 1200
-    });
-
-    // 2. Premium Hover Physics (Anime.js)
-    items.forEach(item => {
-      // Remove native CSS hover transforms to let anime.js handle it
-      item.addEventListener('mouseenter', () => {
-        anime({
-          targets: item,
-          scale: 1.03,
-          translateY: -8,
-          boxShadow: '0 16px 40px rgba(167, 139, 250, 0.25)',
-          borderColor: 'rgba(167, 139, 250, 0.5)',
-          duration: 600,
-          easing: 'easeOutElastic(1, .6)'
-        });
-      });
+  // Bind filter button click
+  const filtersElem = document.getElementById('filter-nav');
+  if (filtersElem) {
+    filtersElem.addEventListener('click', function(event) {
+      if (!event.target.matches('.nav-btn')) return;
       
-      item.addEventListener('mouseleave', () => {
-        anime({
-          targets: item,
-          scale: 1,
-          translateY: 0,
-          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-          borderColor: 'rgba(63, 63, 70, 0.4)',
-          duration: 400,
-          easing: 'easeOutQuad'
-        });
-      });
+      const filterValue = event.target.getAttribute('data-filter');
+      iso.arrange({ filter: filterValue });
+      
+      // Change active class
+      const currentActive = filtersElem.querySelector('.active');
+      if (currentActive) currentActive.classList.remove('active');
+      event.target.classList.add('active');
     });
-
-    // 3. Bind filter button click
-    const filtersElem = document.getElementById('filter-nav');
-    if (filtersElem) {
-      filtersElem.addEventListener('click', function(event) {
-        if (!event.target.matches('.nav-btn')) return;
-        
-        const filterValue = event.target.getAttribute('data-filter');
-        iso.arrange({ filter: filterValue });
-        
-        // Change active class
-        const currentActive = filtersElem.querySelector('.active');
-        if (currentActive) currentActive.classList.remove('active');
-        event.target.classList.add('active');
-      });
-    }
-  });
+  }
 });
