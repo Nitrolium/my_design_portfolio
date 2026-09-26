@@ -1,484 +1,240 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Design Portfolio | Visual Designer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Workshop | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#e5e2e1", "on-surface-variant": "#e7bdb4", "surface-container-lowest": "#0e0e0e",
+              "primary": "#ffb4a4", "on-surface": "#e5e2e1", "surface-container-low": "#1c1b1b",
+              "primary-container": "#ff5635", "surface-dim": "#131313", "surface-bright": "#3a3939",
+              "background": "#131313", "surface-container": "#201f1f", "surface-container-high": "#2a2a2a",
+              "surface-container-highest": "#353534", "surface": "#131313"
+            },
+            fontFamily: {
+              "headline-sm": ["Anton"], "body-md": ["Space Mono"], "body-lg": ["Space Mono"], "label-sm": ["Space Mono"],
+              "label-md": ["Space Mono"], "headline-lg-mobile": ["Anton"], "headline-xl-mobile": ["Anton"],
+              "body-sm": ["Space Mono"], "headline-md": ["Anton"], "headline-xl": ["Anton"], "headline-lg": ["Anton"]
+            },
+            spacing: {
+              "space-md": "1rem", "space-xl": "3rem", "space-sm": "0.5rem", "margin-tablet": "2rem",
+              "gutter-desktop": "1.5rem", "margin": "1rem", "gutter": "1rem", "space-xs": "0.25rem",
+              "margin-desktop": "3rem", "space-lg": "1.5rem"
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      body { background-color: #131313; color: #e5e2e1; }
+      ::-webkit-scrollbar { display: none; }
+      
+      .text-headline-xl { font-size: 112px; line-height: 100px; letter-spacing: -0.04em; font-family: 'Anton', sans-serif; }
+      .text-headline-lg { font-size: 72px; line-height: 68px; letter-spacing: -0.03em; font-family: 'Anton', sans-serif; }
+      .text-headline-md { font-size: 44px; line-height: 44px; letter-spacing: -0.02em; font-family: 'Anton', sans-serif; }
+      .text-headline-sm { font-size: 28px; line-height: 32px; font-family: 'Anton', sans-serif; }
+      @media (max-width: 768px) {
+        .text-headline-xl { font-size: 56px; line-height: 52px; }
+        .text-headline-lg { font-size: 40px; line-height: 40px; }
+      }
+    </style>
 </head>
+<body class="bg-background font-body-md text-on-surface min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-surface-container">
+<div class="h-16 w-full px-margin-desktop flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<span class="font-body-md text-body-md uppercase font-bold tracking-tight text-on-surface">DIGITAL WORKSHOP</span>
+</div>
+<nav class="hidden md:flex items-center gap-space-lg" data-active-classes="text-primary-container border-b-2 border-primary-container">
+<a class="font-label-md uppercase transition-colors py-space-xs text-on-surface-variant hover:text-primary-container" href="#work">WORK</a>
+<a class="font-label-md text-label-md uppercase text-on-surface-variant hover:text-primary-container transition-colors py-space-xs" href="#about">ABOUT</a>
+<a class="font-label-md text-label-md uppercase text-on-surface-variant hover:text-primary-container transition-colors py-space-xs" href="#contact">CONTACT</a>
+</nav>
+</div>
+</header>
+<main class="w-full pt-16 pb-12 bg-background flex-1">
+<div class="flex flex-col w-full">
+<!-- HERO -->
+<section class="relative w-full py-space-xl px-margin-desktop bg-surface-container-lowest flex flex-col items-center justify-center text-center">
+<div class="py-space-xl max-w-4xl mx-auto flex flex-col items-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-space-md">PORTFOLIO // VISUAL DESIGNER</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface uppercase tracking-tight leading-none select-none">DIGITAL</h1>
+<h2 class="font-headline-xl text-headline-xl text-primary-container uppercase tracking-tight leading-none select-none mt-space-xs">WORKSHOP</h2>
+<p class="max-w-xl mt-space-lg font-body-md text-body-md text-on-surface-variant font-mono leading-relaxed">A comprehensive collection of software automation, web applications, and bold visual identities crafted for impact.</p>
+<div class="flex flex-wrap items-center justify-center gap-space-md mt-space-xl" id="work">
+<!-- Filter Buttons will be injected here -->
+<button class="filter-btn pb-space-xs font-label-md text-label-md uppercase tracking-wider transition-colors text-primary-container border-b-2 border-primary-container" data-filter="*">All Works</button><button class="filter-btn pb-space-xs font-label-md text-label-md uppercase tracking-wider transition-colors text-on-surface-variant hover:text-on-surface" data-filter="logos">Logo Designs</button><button class="filter-btn pb-space-xs font-label-md text-label-md uppercase tracking-wider transition-colors text-on-surface-variant hover:text-on-surface" data-filter="promotional">Promotional</button><button class="filter-btn pb-space-xs font-label-md text-label-md uppercase tracking-wider transition-colors text-on-surface-variant hover:text-on-surface" data-filter="apps">Apps &amp; Software</button><button class="filter-btn pb-space-xs font-label-md text-label-md uppercase tracking-wider transition-colors text-on-surface-variant hover:text-on-surface" data-filter="automation">Automation</button><button class="filter-btn pb-space-xs font-label-md text-label-md uppercase tracking-wider transition-colors text-on-surface-variant hover:text-on-surface" data-filter="misc">Miscellaneous</button></div>
+</div>
+</section>
+<!-- MAIN GRID -->
+<section class="w-full py-space-xl px-margin-desktop bg-surface-container-lowest border-t border-surface-container">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-xl">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant block mb-space-xs">Portfolio</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface tracking-tight" id="section-title">ALL WORKS</h2>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-xl" id="project-grid"><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_0')"><img alt="DAYTX" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/DAYTX_logo-02.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">01 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">DAYTX</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_0')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_1')"><img alt="Project One" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/project1.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">02 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Project One</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_1')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_2')"><img alt="Project Two" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/project2.png"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">03 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Project Two</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_2')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_3')"><img alt="Project Three" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/project3.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">04 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Project Three</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_3')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_4')"><img alt="Social Graphics" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/WhatsApp Image 2025-01-19 at 5.12.07 PM.jpeg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">05 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Social Graphics</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_4')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_5')"><img alt="Brand Concept" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/project4.jpeg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">06 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Brand Concept</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_5')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_6')"><img alt="Motivate Logo" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/motivate.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">07 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Motivate Logo</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_6')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_7')"><img alt="Mobile Plus" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/mobile_plus_new_logo_3-011.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">08 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Mobile Plus</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_7')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_8')"><img alt="Identity Design" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/Untitled-1-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">09 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Identity Design</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_8')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_9')"><img alt="Iconography" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/1.png"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">10 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Iconography</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_9')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_10')"><img alt="Providence" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/providence-02.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">11 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Providence</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_10')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_11')"><img alt="Workshop Logo" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/workshop_logo-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">12 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Workshop Logo</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_11')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="logos"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_12')"><img alt="Workshop Logo Concept" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/workshop_logo_2-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">13 // LOGO</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Workshop Logo Concept</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_12')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_13')"><img alt="Iftar Poster" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/iftar-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">14 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Iftar Poster</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_13')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_14')"><img alt="Mobile Plus Promo" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/mplus02-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">15 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Mobile Plus Promo</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_14')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_15')"><img alt="Event Flyer" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/flyer_1.jpeg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">16 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Event Flyer</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_15')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_16')"><img alt="VS Design Banner" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/vs_design-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">17 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">VS Design Banner</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_16')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_17')"><img alt="Creative Ad" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/2.png"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">18 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Creative Ad</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_17')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_18')"><img alt="Social Campaign" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/3.png"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">19 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Social Campaign</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_18')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_19')"><img alt="CAFE MENU DESIGN" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/image_3.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">20 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">CAFE MENU DESIGN</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_19')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_20')"><img alt="Promo Artwork" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/image_1.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">21 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Promo Artwork</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_20')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_21')"><img alt="Billboard Mockup" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/image_2.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">22 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Billboard Mockup</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_21')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_22')"><img alt="Ad Design" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/image_4.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">23 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Ad Design</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_22')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_23')"><img alt="HIRING POSTER" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/221-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">24 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">HIRING POSTER</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_23')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_24')"><img alt="Let Him Fly Flyer" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/Let him fly.png"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">25 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Let Him Fly Flyer</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_24')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_25')"><img alt="Blender Workshop Poster" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/blender_workshop2-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">26 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Blender Workshop Poster</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_25')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_26')"><img alt="Creative Design Poster" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/design_poster-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">27 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Creative Design Poster</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_26')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_27')"><img alt="Orientation Poster" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/orientation_poster-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">28 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Orientation Poster</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_27')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="promotional"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_28')"><video autoplay="" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" loop="" muted="" playsinline="" src="vids/lv_0_20260625165658.mp4"></video></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">29 // PROMOTIONAL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Promotional Video</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_28')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="misc"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_29')"><img alt="T-Shirt Graphic" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/Untitled-1.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">30 // APPAREL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">T-Shirt Graphic</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_29')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="misc"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_30')"><img alt="T-Shirt Graphic (Alt)" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/luffy2-01.jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">31 // APPAREL</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">T-Shirt Graphic (Alt)</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_30')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="misc"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_31')"><img alt="YouTube Art" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="images/Thumbnail .jpg"/></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">32 // MISCELANIOUS</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">YouTube Art</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_31')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="apps"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_32')"><img alt="EndéKada" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" src="app1/Slide 16_9 - 1.jpg"/><div class="absolute bottom-2 right-2 bg-background/80 text-on-surface px-2 py-1 font-label-sm uppercase backdrop-blur rounded-sm border border-surface-container">14 Slides</div></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">33 // APP</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">EndéKada</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_32')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article><article class="project-card flex flex-col justify-between group" data-category="automation"><a class="block relative w-full h-80 overflow-hidden rounded bg-surface-container-high mb-space-md p-space-sm flex items-center justify-center cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_33')"><video autoplay="" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 pointer-events-none" loop="" muted="" playsinline="" src="vids/automation1.mp4"></video></a><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">34 // AUTOMATION</span></div><h3 class="font-headline-md text-headline-md uppercase text-on-surface group-hover:text-primary-container transition-colors">Automation Workflow Demo</h3><a class="inline-flex items-center gap-space-xs text-on-surface hover:text-primary-container font-label-md text-label-md uppercase tracking-wider mt-space-xs transition-colors cursor-pointer" href="javascript:void(0)" onclick="openBrutalLightbox('proj_33')">View Project <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a></div></article></div>
+</section>
+<!-- ABOUT SECTION -->
+<section class="w-full py-space-xl px-margin-desktop bg-surface-container-lowest border-t border-surface-container" id="about">
+<div class="max-w-4xl mb-space-xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Profile</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface mt-space-xs">ABOUT ME</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant font-mono mt-space-sm max-w-2xl">I build robust automated systems and craft digital experiences that merge seamless logic with engaging aesthetics.</p>
+</div>
+</section>
+<!-- CONTACT SECTION -->
+<section class="w-full bg-surface-container-lowest text-on-surface py-space-xl px-margin-desktop border-t border-surface-container" id="contact">
+<div class="max-w-4xl flex flex-col items-start gap-space-md py-space-xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-mono">Connect</span>
+<h2 class="font-headline-lg text-headline-lg uppercase tracking-tight text-on-surface leading-none">LET'S BUILD.</h2>
+<div class="flex flex-wrap items-center gap-space-md mt-space-md">
+<a class="px-space-xl py-space-md bg-on-surface text-surface font-label-md text-label-md uppercase rounded hover:bg-on-surface-variant transition-colors" href="mailto:craftwyre@gmail.com">Email ↗</a>
+<a class="px-space-lg py-space-md border border-surface-container-highest text-on-surface font-label-md text-label-md uppercase rounded hover:border-on-surface transition-colors" href="#">LinkedIn ↗</a>
+</div>
+</div>
+</section>
+</div>
+</main>
+<script>
+  (function initPortfolioInteractivity() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
 
-<body>
-  <!-- Background Ambient Orbs -->
-  <div class="glow-orb orb-1"></div>
-  <div class="glow-orb orb-2"></div>
-  <div class="glow-orb orb-3"></div>
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('text-primary-container', 'border-b-2', 'border-primary-container');
+          b.classList.add('text-on-surface-variant');
+        });
+        btn.classList.add('text-primary-container', 'border-b-2', 'border-primary-container');
+        btn.classList.remove('text-on-surface-variant');
 
-  <header class="portfolio-header">
-    <div class="bento-header-grid">
-      <!-- Main Title Card -->
-      <div class="bento-header-card bento-main">
-        <span class="badge">Portfolio</span>
-        <h1>Digital Workshop</h1>
-        <p class="subtitle">A comprehensive collection of software automation, web applications, and bold visual identities crafted for impact.</p>
-      </div>
-      <!-- Bio Card -->
-      <div class="bento-header-card bento-bio">
-        <h3>About Me</h3>
-        <p>I build robust automated systems and craft digital experiences that merge seamless logic with engaging aesthetics.</p>
-      </div>
-      <!-- Links Card -->
-      <div class="bento-header-card bento-links">
-        <h3>Connect</h3>
-        <div class="link-list">
-          <a href="#" class="bento-link" onclick="event.preventDefault(); navigator.clipboard.writeText('craftwyre@gmail.com'); this.innerHTML='Copied! <span>✓</span>'; setTimeout(() => this.innerHTML='Email <span>↗</span>', 2000);">Email <span>↗</span></a>
-          <a href="#" class="bento-link">LinkedIn <span>↗</span></a>
-        </div>
-      </div>
-    </div>
+        const filter = btn.getAttribute('data-filter');
+        const sectionTitle = document.getElementById('section-title');
+        if (sectionTitle) { sectionTitle.innerText = btn.innerText; }
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === '*' || filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
+</script>
+<div class="fixed inset-0 z-[100] bg-background/95 backdrop-blur hidden flex-col" id="brutal-lightbox">
+<!-- Header -->
+<div class="fixed top-0 left-0 right-0 h-16 w-full px-margin-desktop flex items-center justify-between border-b border-surface-container bg-background z-50">
+<span class="font-body-md text-body-md uppercase font-bold text-on-surface" id="bl-title">Title</span>
+<button class="text-on-surface hover:text-primary-container transition-colors font-label-md uppercase tracking-widest flex items-center gap-2" onclick="closeBrutalLightbox()">
+                CLOSE <span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Content Area -->
+<div class="fixed inset-0 pt-16 pb-12 w-full flex items-center justify-center p-space-md overflow-hidden pointer-events-none">
+<button class="fixed left-4 md:left-margin-desktop top-1/2 -translate-y-1/2 w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-colors hidden z-10 text-on-surface" id="bl-prev" style="pointer-events: auto;" onclick="prevBrutalSlide()">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="w-full h-full flex items-center justify-center pointer-events-auto" id="bl-media-container">
+<!-- Media injected here -->
+</div>
+<button class="fixed right-4 md:right-margin-desktop top-1/2 -translate-y-1/2 w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center hover:bg-primary-container hover:text-on-primary-container transition-colors hidden z-10 text-on-surface" id="bl-next" style="pointer-events: auto;" onclick="nextBrutalSlide()">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<!-- Footer / Counter -->
+<div class="fixed bottom-0 left-0 right-0 h-12 w-full px-margin-desktop border-t border-surface-container flex items-center justify-center hidden bg-background z-50" id="bl-counter-container">
+<span class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant" id="bl-counter">1 / 1</span>
+</div>
+</div>
+<script>
+    const GALLERY_DATA = {"proj_0": {"type": "img", "items": ["images/DAYTX_logo-02.jpg"], "title": "DAYTX"}, "proj_1": {"type": "img", "items": ["images/project1.jpg"], "title": "Project One"}, "proj_2": {"type": "img", "items": ["images/project2.png"], "title": "Project Two"}, "proj_3": {"type": "img", "items": ["images/project3.jpg"], "title": "Project Three"}, "proj_4": {"type": "img", "items": ["images/WhatsApp Image 2025-01-19 at 5.12.07 PM.jpeg"], "title": "Social Graphics"}, "proj_5": {"type": "img", "items": ["images/project4.jpeg"], "title": "Brand Concept"}, "proj_6": {"type": "img", "items": ["images/motivate.jpg"], "title": "Motivate Logo"}, "proj_7": {"type": "img", "items": ["images/mobile_plus_new_logo_3-011.jpg"], "title": "Mobile Plus"}, "proj_8": {"type": "img", "items": ["images/Untitled-1-01.jpg"], "title": "Identity Design"}, "proj_9": {"type": "img", "items": ["images/1.png"], "title": "Iconography"}, "proj_10": {"type": "img", "items": ["images/providence-02.jpg"], "title": "Providence"}, "proj_11": {"type": "img", "items": ["images/workshop_logo-01.jpg"], "title": "Workshop Logo"}, "proj_12": {"type": "img", "items": ["images/workshop_logo_2-01.jpg"], "title": "Workshop Logo Concept"}, "proj_13": {"type": "img", "items": ["images/iftar-01.jpg"], "title": "Iftar Poster"}, "proj_14": {"type": "img", "items": ["images/mplus02-01.jpg"], "title": "Mobile Plus Promo"}, "proj_15": {"type": "img", "items": ["images/flyer_1.jpeg"], "title": "Event Flyer"}, "proj_16": {"type": "img", "items": ["images/vs_design-01.jpg"], "title": "VS Design Banner"}, "proj_17": {"type": "img", "items": ["images/2.png"], "title": "Creative Ad"}, "proj_18": {"type": "img", "items": ["images/3.png"], "title": "Social Campaign"}, "proj_19": {"type": "img", "items": ["images/image_3.jpg"], "title": "CAFE MENU DESIGN"}, "proj_20": {"type": "img", "items": ["images/image_1.jpg"], "title": "Promo Artwork"}, "proj_21": {"type": "img", "items": ["images/image_2.jpg"], "title": "Billboard Mockup"}, "proj_22": {"type": "img", "items": ["images/image_4.jpg"], "title": "Ad Design"}, "proj_23": {"type": "img", "items": ["images/221-01.jpg"], "title": "HIRING POSTER"}, "proj_24": {"type": "img", "items": ["images/Let him fly.png"], "title": "Let Him Fly Flyer"}, "proj_25": {"type": "img", "items": ["images/blender_workshop2-01.jpg"], "title": "Blender Workshop Poster"}, "proj_26": {"type": "img", "items": ["images/design_poster-01.jpg"], "title": "Creative Design Poster"}, "proj_27": {"type": "img", "items": ["images/orientation_poster-01.jpg"], "title": "Orientation Poster"}, "proj_28": {"type": "video", "items": ["vids/lv_0_20260625165658.mp4"], "title": "Promotional Video"}, "proj_29": {"type": "img", "items": ["images/Untitled-1.jpg"], "title": "T-Shirt Graphic"}, "proj_30": {"type": "img", "items": ["images/luffy2-01.jpg"], "title": "T-Shirt Graphic (Alt)"}, "proj_31": {"type": "img", "items": ["images/Thumbnail .jpg"], "title": "YouTube Art"}, "proj_32": {"type": "img", "items": ["app1/Slide 16_9 - 1.jpg", "app1/Slide 16_9 - 2.jpg", "app1/Slide 16_9 - 3.jpg", "app1/Slide 16_9 - 4.jpg", "app1/Slide 16_9 - 5.jpg", "app1/Slide 16_9 - 6.jpg", "app1/Slide 16_9 - 7.jpg", "app1/z1.jpeg", "app1/z2.jpeg", "app1/z3.jpeg", "app1/z4.jpeg", "app1/z5.jpeg", "app1/z6.jpeg", "app1/z7.jpeg"], "title": "End\u00e9Kada"}, "proj_33": {"type": "video", "items": ["vids/automation1.mp4"], "title": "Automation Workflow Demo"}};
+    let bl_items = [];
+    let bl_index = 0;
+    let bl_type = 'img';
     
-    <!-- Filter Navigation -->
-    <nav class="category-nav" id="filter-nav">
-      <button class="nav-btn active" data-filter="*">All Works</button>
-      <button class="nav-btn" data-filter=".logos">Logo Designs</button>
-      <button class="nav-btn" data-filter=".promotional">Promotional</button>
-      <button class="nav-btn" data-filter=".apps">Apps & Software</button>
-      <button class="nav-btn" data-filter=".automation">Automation</button>
-      <button class="nav-btn" data-filter=".misc">Miscellaneous</button>
-    </nav>
-  </header>
-
-  <main class="portfolio-container">
-    <div class="portfolio-grid isotope-grid" id="main-grid">
-
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/DAYTX_logo-02.jpg')">
-          <div class="img-wrapper">
-            <img src="images/DAYTX_logo-02.jpg" alt="DAYTX Logo" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>DAYTX</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/project1.jpg')">
-          <div class="img-wrapper">
-            <img src="images/project1.jpg" alt="Logo Project 1" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Project One</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/project2.png')">
-          <div class="img-wrapper">
-            <img src="images/project2.png" alt="Logo Project 2" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Project Two</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/project3.jpg')">
-          <div class="img-wrapper">
-            <img src="images/project3.jpg" alt="Logo Project 3" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Project Three</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/WhatsApp Image 2025-01-19 at 5.12.07 PM.jpeg')">
-          <div class="img-wrapper">
-            <img src="images/WhatsApp Image 2025-01-19 at 5.12.07 PM.jpeg" alt="Logo Project 4" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Social Graphics</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/project4.jpeg')">
-          <div class="img-wrapper">
-            <img src="images/project4.jpeg" alt="Logo Project 5" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Brand Concept</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/motivate.jpg')">
-          <div class="img-wrapper">
-            <img src="images/motivate.jpg" alt="Motivation Branding" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Motivate Logo</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/mobile_plus_new_logo_3-011.jpg')">
-          <div class="img-wrapper">
-            <img src="images/mobile_plus_new_logo_3-011.jpg" alt="Mobile Plus Branding" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Mobile Plus</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/Untitled-1-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/Untitled-1-01.jpg" alt="Creative Logo" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Identity Design</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/1.png')">
-          <div class="img-wrapper">
-            <img src="images/1.png" alt="Logo Design" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Iconography</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/providence-02.jpg')">
-          <div class="img-wrapper">
-            <img src="images/providence-02.jpg" alt="Providence Identity" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Providence</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/workshop_logo-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/workshop_logo-01.jpg" alt="Workshop Logo" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Workshop Logo</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item logos" onclick="openLightbox('images/workshop_logo_2-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/workshop_logo_2-01.jpg" alt="Workshop Logo Concept" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Logo</span>
-            <h3>Workshop Logo Concept</h3>
-          </div>
-        </div>
-      
-
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/iftar-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/iftar-01.jpg" alt="Iftar Poster Design" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Iftar Poster</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/mplus02-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/mplus02-01.jpg" alt="Marketing Design 1" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Mobile Plus Promo</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/flyer_1.jpeg')">
-          <div class="img-wrapper">
-            <img src="images/flyer_1.jpeg" alt="Flyer Campaign" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Event Flyer</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/vs_design-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/vs_design-01.jpg" alt="VS Design Layout" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>VS Design Banner</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/2.png')">
-          <div class="img-wrapper">
-            <img src="images/2.png" alt="Marketing Graphic" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Creative Ad</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/3.png')">
-          <div class="img-wrapper">
-            <img src="images/3.png" alt="Marketing Asset" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Social Campaign</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/image_3.jpg')">
-          <div class="img-wrapper">
-            <img src="images/image_3.jpg" alt="Marketing Image 3" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Campaign Display</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/image_1.jpg')">
-          <div class="img-wrapper">
-            <img src="images/image_1.jpg" alt="Marketing Image 1" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Promo Artwork</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/image_2.jpg')">
-          <div class="img-wrapper">
-            <img src="images/image_2.jpg" alt="Marketing Image 2" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Billboard Mockup</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/image_4.jpg')">
-          <div class="img-wrapper">
-            <img src="images/image_4.jpg" alt="Marketing Image 4" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Ad Design</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/221-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/221-01.jpg" alt="Marketing Design Poster" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Poster 221</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/Let him fly.png')">
-          <div class="img-wrapper">
-            <img src="images/Let him fly.png" alt="Creative Flyer Design" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Let Him Fly Flyer</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/blender_workshop2-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/blender_workshop2-01.jpg" alt="Blender Workshop Design" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Blender Workshop Poster</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/design_poster-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/design_poster-01.jpg" alt="Design Poster Creative" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Creative Design Poster</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item promotional" onclick="openLightbox('images/orientation_poster-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/orientation_poster-01.jpg" alt="Orientation Event Poster" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Promotional</span>
-            <h3>Orientation Poster</h3>
-          </div>
-        </div>
-
-        <div class="vid-card filter-item promotional" onclick="openVideo('vids/lv_0_20260625165658.mp4', 'Promotional Video', 'A creative promotional video.')">
-          <div class="vid-cover vertical">
-            <video src="vids/lv_0_20260625165658.mp4" muted preload="metadata" class="vid-preview" id="vid-preview-promo"></video>
-            <div class="vid-cover-overlay">
-              <div class="vid-play-btn">&#9654;</div>
-            </div>
-          </div>
-          <div class="vid-info">
-            <div class="vid-name-row">
-              <h3>Promotional Video</h3>
-              <span class="vid-badge">Promotional</span>
-            </div>
-            <p class="vid-desc">A creative promotional video.</p>
-          </div>
-        </div>
-      
-
-        <div class="portfolio-item filter-item misc" onclick="openLightbox('images/Untitled-1.jpg')">
-          <div class="img-wrapper">
-            <img src="images/Untitled-1.jpg" alt="T-Shirt Graphic Design 1" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Apparel</span>
-            <h3>T-Shirt Graphic</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item misc" onclick="openLightbox('images/luffy2-01.jpg')">
-          <div class="img-wrapper">
-            <img src="images/luffy2-01.jpg" alt="T-Shirt Graphic Design 2" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Apparel</span>
-            <h3>T-Shirt Graphic (Alt)</h3>
-          </div>
-        </div>
-        <div class="portfolio-item filter-item misc" onclick="openLightbox('images/Thumbnail .jpg')">
-          <div class="img-wrapper">
-            <img src="images/Thumbnail .jpg" alt="Video Thumbnail" loading="lazy">
-          </div>
-          <div class="item-overlay">
-            <span class="item-category">Miscelanious</span>
-            <h3>YouTube Art</h3>
-          </div>
-        </div>
-      
-
-
-        <!-- EndéKada App -->
-        <div class="app-card filter-item apps" onclick="openGallery('EndéKada', 'A beautifully crafted app experience.', [
-          'app1/Slide 16_9 - 1.jpg',
-          'app1/Slide 16_9 - 2.jpg',
-          'app1/Slide 16_9 - 3.jpg',
-          'app1/Slide 16_9 - 4.jpg',
-          'app1/Slide 16_9 - 5.jpg',
-          'app1/Slide 16_9 - 6.jpg',
-          'app1/Slide 16_9 - 7.jpg',
-          'app1/z1.jpeg',
-          'app1/z2.jpeg',
-          'app1/z3.jpeg',
-          'app1/z4.jpeg',
-          'app1/z5.jpeg',
-          'app1/z6.jpeg',
-          'app1/z7.jpeg'
-        ])">
-          <div class="app-cover">
-            <img src="app1/Slide 16_9 - 1.jpg" alt="EndéKada App Cover" loading="lazy">
-            <div class="app-cover-overlay">
-              <span class="app-gallery-hint">&#9654; View Gallery &nbsp;&middot;&nbsp; 14 slides</span>
-            </div>
-          </div>
-          <div class="app-info">
-            <div class="app-name-row">
-              <h3>EndéKada</h3>
-              <span class="app-badge">App</span>
-            </div>
-            <p class="app-desc">A beautifully crafted app experience.</p>
-          </div>
-        </div>
-
-        <!-- Future apps will be added here -->
-      
-
-
-        <div class="vid-card filter-item automation" onclick="openVideo('vids/automation1.mp4', 'Automation Workflow Demo', 'A walkthrough of an automated workflow system.')">
-          <div class="vid-cover">
-            <video src="vids/automation1.mp4" muted preload="metadata" class="vid-preview" id="vid-preview-1"></video>
-            <div class="vid-cover-overlay">
-              <div class="vid-play-btn">&#9654;</div>
-            </div>
-          </div>
-          <div class="vid-info">
-            <div class="vid-name-row">
-              <h3>Automation Workflow Demo</h3>
-              <span class="vid-badge">Automation</span>
-            </div>
-            <p class="vid-desc">A walkthrough of an automated workflow system.</p>
-          </div>
-        </div>
-
-        <!-- Future videos will be added here -->
-      
-
-    </div>
-  </main>
-
-  <footer class="portfolio-footer">
-    <p>&copy; 2026 Craftwyre. All rights reserved.</p>
-  </footer>
-
-  <!-- Lightbox Overlay -->
-  <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-
-    <!-- Prev / Next (only shown in gallery mode) -->
-    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" onclick="event.stopPropagation(); galleryNav(-1)" aria-label="Previous">&#8249;</button>
-    <button class="lightbox-nav lightbox-next" id="lightbox-next" onclick="event.stopPropagation(); galleryNav(1)" aria-label="Next">&#8250;</button>
-
-    <div class="lightbox-content" onclick="event.stopPropagation()">
-      <img id="lightbox-img" src="" alt="Expanded View">
-      <div class="lightbox-footer">
-        <div id="lightbox-caption" class="lightbox-caption"></div>
-        <div id="lightbox-counter" class="lightbox-counter"></div>
-      </div>
-    </div>
-  </div>
-  <!-- Video Modal Overlay -->
-  <div id="video-modal" class="video-modal-overlay" onclick="closeVideo()">
-    <button class="lightbox-close" onclick="closeVideo()">&times;</button>
-    <div class="video-modal-content" onclick="event.stopPropagation()">
-      <video id="modal-video" controls autoplay style="max-width:100%;max-height:80vh;border-radius:12px;outline:none;"></video>
-      <div class="video-modal-footer">
-        <div id="video-modal-title" class="lightbox-caption"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- App Gallery Panel (Google Images style) -->
-  <div id="app-gallery-panel" class="agp-overlay" onclick="closeAppGallery()">
-    <div class="agp-container" onclick="event.stopPropagation()">
-
-      <!-- Header bar -->
-      <div class="agp-header">
-        <div class="agp-title-group">
-          <span id="agp-app-name" class="agp-app-name"></span>
-          <span id="agp-counter" class="agp-counter"></span>
-        </div>
-        <button class="agp-close" onclick="closeAppGallery()">&times;</button>
-      </div>
-
-      <!-- Body: preview + thumbs -->
-      <div class="agp-body">
-
-        <!-- Large preview -->
-        <div class="agp-preview-pane">
-          <img id="agp-main-img" src="" alt="App screenshot">
-        </div>
-
-        <!-- Thumbnail strip -->
-        <div class="agp-thumbs-pane" id="agp-thumbs">
-          <!-- Filled by JS -->
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Layout Scripts -->
-  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    function openBrutalLightbox(projId) {
+        const data = GALLERY_DATA[projId];
+        if(!data) return;
+        
+        bl_type = data.type;
+        bl_items = data.items;
+        bl_index = 0;
+        
+        document.getElementById('bl-title').innerText = data.title;
+        
+        const modal = document.getElementById('brutal-lightbox');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        
+        document.body.style.overflow = 'hidden';
+        updateBrutalMedia();
+    }
+    
+    function closeBrutalLightbox() {
+        const modal = document.getElementById('brutal-lightbox');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.getElementById('bl-media-container').innerHTML = ''; 
+        document.body.style.overflow = '';
+    }
+    
+    function updateBrutalMedia() {
+        const container = document.getElementById('bl-media-container');
+        const src = bl_items[bl_index];
+        
+        if (bl_type === 'video') {
+            container.innerHTML = '<video src="' + src + '" class="max-w-full max-h-full object-contain drop-shadow-2xl" autoplay controls playsinline></video>';
+        } else {
+            container.innerHTML = '<img src="' + src + '" class="max-w-full max-h-full object-contain drop-shadow-2xl" alt="Gallery Image" />';
+        }
+        
+        const prevBtn = document.getElementById('bl-prev');
+        const nextBtn = document.getElementById('bl-next');
+        const counterCont = document.getElementById('bl-counter-container');
+        
+        if (bl_items.length > 1) {
+            prevBtn.style.display = 'flex';
+            nextBtn.style.display = 'flex';
+            counterCont.style.display = 'flex';
+            
+            prevBtn.classList.remove('hidden');
+            nextBtn.classList.remove('hidden');
+            counterCont.classList.remove('hidden');
+            
+            document.getElementById('bl-counter').innerText = (bl_index + 1) + " / " + bl_items.length;
+        } else {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            counterCont.style.display = 'none';
+            
+            prevBtn.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+            counterCont.classList.add('hidden');
+        }
+    }
+    
+    function prevBrutalSlide() {
+        bl_index = (bl_index > 0) ? bl_index - 1 : bl_items.length - 1;
+        updateBrutalMedia();
+    }
+    function nextBrutalSlide() {
+        bl_index = (bl_index < bl_items.length - 1) ? bl_index + 1 : 0;
+        updateBrutalMedia();
+    }
+</script>
 </body>
-
 </html>
